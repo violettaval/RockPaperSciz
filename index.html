@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script text="javascript">
+        // loops 10 x
+        var choice;
+        var choices = ["r", "p", "s"];
+        function pickAThing() {
+            choice = prompt("Wrong Pick r, p, s");
+            console.log(choice);
+        }
+        
+        //player's win loss record 
+        var wins = 0;
+        var losses = 0;
+        var ties = 0;
+
+        winLoss = [wins, losses, ties];
+
+        for(var i = 0; i< 10; i++){
+            var choice = prompt("Pick r, p, s");
+            while (choice === "r" || choice === "p" || choice === "s") {
+                pickAThing();
+            }
+
+            // gens the computer pick
+            
+            var computerPlays = choices[Math.floor(Math.random() * 3)]
+            console.log(computerPlays);
+            if (computerPlays === choice){
+                alert("Tie game!")
+                ties++;
+            }
+            // player win conditions
+            else if ((choice==="r" && computerPlays === "s" ) || (choice === "s" && computerPlays === "p") || (choice === "p" && computerPlays === "r")) {
+                alert("You Win!!!")
+                wins++
+                alert("Your Wins so far are:" + wins)
+            }
+            // loss conditions
+            // else if ((choice === "r" && computerPlays === "p") || (choice === "s" && computerPlays === "") )
+            else{
+                alert("You Lose!!!")
+                losses++
+                alert("Your Losses so far are:" + losses)
+            } 
+
+
+
+
+
+        }
+
+
+    </script>
+
+</body>
+</html>
